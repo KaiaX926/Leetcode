@@ -1,3 +1,6 @@
+# Move rightward little by little until meeting the first duplicate character. 
+# Locate the duplicate character in the past string and restart the exam process from that location.
+
 class Solution(object):
     def lengthOfLongestSubstring(self,s):
         """
