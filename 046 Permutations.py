@@ -1,4 +1,4 @@
-# The core idea is to use dynamic programming (DFS) by changing the position of each pair of numbers in order. [DFS method goes as far as possible before backtracking]
+# The core idea is to use DFS by changing the position of each pair of numbers in order. [DFS method goes as far as possible before backtracking]
 # The first function is used to output the final result, and the second function is the main part of obtaining potential permutation.
 # The thinking flow is that we try to change the order of the last several numbers. Treat the last several numbers as a new subset and recursively start the permutation step inside the new subset.
 # For example, in the first step, we want to get a new list by changing the order of the last number. Of course, there is only one solution, so we add it directly to the output list.
