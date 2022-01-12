@@ -1,4 +1,4 @@
-# The core idea is to calculate how many paths there is to be in the current location by summing up the numbers of ways to arrive the point up and on the left side of the current location.
+# The core idea is to calculate how many paths there are to be in the current location by summing up the number of ways to arrive at the point up and on the left side of the current location.
 
 class Solution:
     def uniquePaths(self, m, n):
