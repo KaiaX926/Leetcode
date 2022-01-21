@@ -7,13 +7,9 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        if len(nums1) == 0 or len(nums2) == 0:
-            return nums1
-        
-        p1,p2,right = m-1,n-1,m+n-1
-        
 
-   
+        p1,p2,right = m-1,n-1,m+n-1
+
         while right >= 0 and p1 >= 0 and p2 >= 0 and nums1[right] == 0:
             if nums1[p1] >= nums2[p2]:
                 nums1[right],nums1[p1] = nums1[p1],0
