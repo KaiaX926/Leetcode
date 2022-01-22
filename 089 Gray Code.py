@@ -4,6 +4,23 @@ class Solution:
     
 # ^	XOR	Sets each bit to 1 if only one of two bits is 1
 
+#--------------------------------------------------------
+
+class Solution:
+    def grayCode(self, n: int) -> List[int]:
+        result = set()
+        def backtrack(i):
+            if i == 0:
+                return [[]]
+            rest = backtrack(i - 1)
+            result = []
+            for r in rest:
+                result.append(r + ['0'])
+            for r in rest[::-1]:
+                result.append(r + ['1'])
+            return result
+        
+        return [ int("".join(ar), 2) for ar in backtrack(n)]
 
 
 #--------------------------------------------------------
