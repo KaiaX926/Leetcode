@@ -1,26 +1,19 @@
-class Solution(object):
-    def restoreIpAddresses(self, s):
-        """
-        :type s: str
-        :rtype: List[str]
-        """
-        
-        res = []
+res = []
         i,t,r = 0,0,s
         
         if len(s) > 12:
             return res
         
-        step = 1 #len(s)//4
+        #step = 1 #len(s)//4
 
-        def fetch(s,i,res,r,t,step):
-            l = step
+        def fetch(s,i,res,r,t):
+            l = 1
             while i <= len(r) and t <= 3 and l <= min(3,len(s) - i + 1):
                 if ((int(r[i:i+l]) == 0 and l == 1 ) or (r[i] != '0' and int(r[i:i+l]) > 0))and int(r[i:i+l]) <= 255:
                     r = r[:i+l] + '.' + r[i+l:]
                     t += 1
                     i += l+1 # i = i + l + 1
-                    fetch(s,i,res,r,t,step)
+                    fetch(s,i,res,r,t)
                     i -= l+1
                     r = r[:i+l] + r[i+l+1:] #r = r[:i+l] + '.' + r[i+l:]
                     
@@ -35,5 +28,5 @@ class Solution(object):
             
             return
        
-        fetch(s,i,res,r,t,step)
+        fetch(s,i,res,r,t)
         return res
