@@ -19,3 +19,17 @@ class Solution:
             res += self.dfs(start, i - 1, memo)*self.dfs(i + 1, end, memo)
         memo[(start, end)] = res
         return res
+#-----------------------------------------------------
+
+# at each node i, steps to i = steps to j * steps from j to i
+class Solution:
+    def numTrees(self, n):
+        dp = [0 for _ in range(n + 1)]
+        dp[0] = 1
+        dp[1] = 1
+
+        for i in range(2, n + 1):
+            for j in range(1, n + 1):
+                dp[i] += dp[j - 1] * dp[i - j]
+
+        return dp[-1]
