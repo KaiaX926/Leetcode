@@ -36,4 +36,27 @@ class Solution:
 # we need to check if symbol s[i+j+1] is equal to s2[j] and answer is true for dp(i, j-1) and j >= 0, or similar condition for another string.
 
 
+class Solution:
+    def isInterleave(self, s1, s2, s3):
+        if len(s1)+len(s2)!=len(s3):
+            return False
+        
+        dp={}
+        
+        def solve(i,j):
+            
+            if i== len(s1) and j==len(s2):
+                return True
+            
+            if (i,j) in dp:
+                return dp[(i,j)]
+            
+            if  i <len(s1) and s3[i+j]==s1[i] and solve(i+1,j):
+                return True
 
+            if j<len(s2) and s3[i+j]==s2[j] and solve(i,j+1):
+                return True
+            
+            dp[(i,j)]=False
+         
+        return solve(0,0)
