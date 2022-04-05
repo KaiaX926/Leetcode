@@ -55,5 +55,30 @@ class Solution:
         return self.res
 
                 
+####################################################################################                
                 
+
+class Solution:
+    def calculate(self, s: str) -> int:
+        
+        stack = []
+        curr_op = "+"
+        curr_num = ""
+        s += " "
+        for i in range(len(s)):
+            if s[i] in "0123456789":
+                curr_num += s[i]
+            if s[i] in ["+","/","*","-"] or i == len(s)-1:
                 
+                if curr_op == "*":
+                    stack[-1] = stack[-1] * int(curr_num)
+                elif curr_op == "/":
+                    stack[-1] = int(stack[-1] / int(curr_num))
+                    
+                elif curr_op == "+":
+                    stack.append(int(curr_num))
+                elif curr_op == "-":
+                    stack.append(int(curr_num)*-1)
+                curr_num = ""
+                curr_op = s[i]
+        return sum(stack)
