@@ -1,0 +1,22 @@
+class Solution:
+    def getHint(self, secret: str, guess: str) -> str:
+        bulls, cows = 0, 0
+        s, g = {}, {}
+        for i in range(len(secret)):
+            if secret[i] == guess[i]:
+                bulls += 1
+            else:
+                if secret[i] not in s.keys():
+                    s[secret[i]] = 1
+                else:
+                    s[secret[i]] += 1
+
+                if guess[i] not in g.keys():
+                    g[guess[i]] = 1
+                else:
+                    g[guess[i]] += 1
+        for i in s.keys():
+            if i in g.keys():
+                cows += min(s[i], g[i])
+
+        return f'''{bulls}A{cows}B'''
