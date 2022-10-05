@@ -19,3 +19,11 @@ class Solution:
             step <<= 1
             
         return ans
+
+# Quoting from the docs:
+
+# x << y
+# Returns x with the bits shifted to the left by y places (and new bits on the right-hand-side are zeros). This is the same as multiplying x by 2**y.
+
+# x >> y
+# Returns x with the bits shifted to the right by y places. This is the same as dividing x by 2**y.
